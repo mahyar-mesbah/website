@@ -1,0 +1,389 @@
+---
+---
+
+<section class="hero">
+  <canvas id="hero-canvas" class="hero-canvas"></canvas>
+  <div class="hero-content">
+    <h2 class="prefix">I'm</h2>
+    <h1 class="title">
+      Mahyar <span>&mdash;</span><br /><span>&mdash;</span> Mesbah
+    </h1>
+    <p>Senior UI/UX/Graphic designer</p>
+    <div class="hero-buttons">
+      <a href="#work" class="btn-primary">View My Work</a>
+      <a href="#contact" class="btn-secondary">Get In Touch</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Inter', system-ui, sans-serif;
+    user-select: none;
+  }
+
+  .hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.5s ease-in;
+    z-index: 1;
+  }
+
+  .hero-canvas.loaded {
+    opacity: 1;
+  }
+
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    padding: 5rem 4rem;
+  }
+
+  .prefix {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: 400;
+    opacity: 0.9;
+  }
+
+  .hero .title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 800;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.02em;
+    background: linear-gradient(45deg, #fff, #e0e7ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    line-height: 1em;
+    text-indent: -0.025em;
+  }
+
+  .hero p {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    margin: 0 0 2rem 0;
+    opacity: 0.9;
+    font-weight: 300;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.875rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    min-width: 140px;
+  }
+
+  .btn-primary {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .btn-primary:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+  }
+
+  .title span {
+    display: inline;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 1rem;
+    }
+    
+    .hero-content {
+      padding: 2rem 0;
+    }
+    
+    .prefix {
+      text-align: center;
+    }
+    
+    .title br,
+    .title span {
+      display: none;
+    }
+    
+    .hero-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+      width: 100%;
+      max-width: 200px;
+    }
+  }
+</style>
+
+<script>
+  interface Geo {
+    opacity: number;
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+    centerX: number;
+    centerY: number;
+    draw: boolean;
+  }
+
+  type GeoRow = Geo[];
+  type GeoMap = GeoRow[];
+
+  interface SafeArea {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+  }
+
+  interface MouseLocation {
+    x: number;
+    y: number;
+  }
+
+  const defaultSquareColor = "#c6c7c950";
+  const squareSize = 15;
+  const squareMargin = 45;
+  const gradientColors: Array<{r: number, g: number, b: number}> = [];
+  const updateColorDistanceThreshold = 400;
+  const colorStopResolution = 200;
+  
+  let loaded = false;
+  let scale = 1;
+  let geoMap: GeoMap = [];
+  let finishedDrawing = false;
+  let columnCount: number;
+  let rowCount: number;
+  let safeArea: SafeArea;
+
+  const setResolution = (canvas: HTMLCanvasElement) => {
+    const clientRect = canvas.getBoundingClientRect();
+
+    finishedDrawing = false;
+    canvas.width = clientRect.width * scale;
+    canvas.height = clientRect.height * scale;
+    columnCount = Math.floor(clientRect.width / (squareSize + squareMargin));
+    rowCount = Math.floor(clientRect.height / (squareSize + squareMargin) + 0.5);
+
+    const drawAreaRect = document.querySelector(".hero-content")?.getBoundingClientRect();
+    const canvasRect = canvas.getBoundingClientRect();
+
+    if (drawAreaRect) {
+      safeArea = {
+        x: (drawAreaRect.left - canvasRect.left) * scale,
+        y: (drawAreaRect.top - canvasRect.top) * scale,
+        width: drawAreaRect.width * scale,
+        height: drawAreaRect.height * scale,
+      };
+    }
+
+    const offsetX = (clientRect.width - (columnCount * (squareSize + squareMargin) - squareMargin)) / 2;
+    const offsetY = 10;
+
+    geoMap = [];
+
+    for (let i = 0; i < columnCount; i++) {
+      let geoRow: Geo[] = [];
+
+      for (let j = 0; j < rowCount; j++) {
+        const xPos = offsetX + i * (squareSize + squareMargin);
+        const yPos = offsetY + j * (squareSize + squareMargin);
+
+        const geo: Geo = {
+          opacity: 1,
+          x: xPos * scale,
+          y: yPos * scale,
+          width: squareSize * scale,
+          height: squareSize * scale,
+          centerX: xPos * scale + (squareSize * scale) / 2,
+          centerY: yPos * scale + (squareSize * scale) / 2,
+          draw: false,
+        };
+
+        geo.draw = !checkOverlap(safeArea, geo);
+        geoRow.push(geo);
+      }
+
+      geoMap.push(geoRow);
+    }
+  };
+
+  const checkOverlap = (safeArea: SafeArea, geo: Geo): boolean => {
+    let overlapX = false;
+    let overlapY = false;
+
+    if (
+      (geo.x + geo.width > safeArea.x && geo.x + geo.width < safeArea.x + safeArea.width) ||
+      (geo.x > safeArea.x && geo.x < safeArea.x + safeArea.width)
+    ) {
+      overlapX = true;
+    }
+
+    if (
+      (geo.y + geo.height > safeArea.y && geo.y + geo.height < safeArea.y + safeArea.height) ||
+      (geo.y > safeArea.y && geo.y < safeArea.y + safeArea.height)
+    ) {
+      overlapY = true;
+    }
+
+    return overlapY && overlapX;
+  };
+
+  const initCanvas = (canvas: HTMLCanvasElement) => {
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    
+    const gradientWidth = 500;
+    let gradient = ctx.createLinearGradient(0, 0, gradientWidth, 0);
+
+    setResolution(canvas);
+
+    gradient.addColorStop((1 / 3) * 0, "#fc44e4");
+    gradient.addColorStop((1 / 3) * 1, "#4b2ec6");
+    gradient.addColorStop((1 / 3) * 2, "#FFBA02");
+    gradient.addColorStop((1 / 3) * 3, "#FF295D");
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, gradientWidth, 2);
+
+    for (let i = 0; i < colorStopResolution; i++) {
+      const imageData = ctx.getImageData(i * (gradientWidth / colorStopResolution), 1, 1, 1).data;
+      gradientColors.push({ r: imageData[0], g: imageData[1], b: imageData[2] });
+    }
+
+    drawSquares(canvas);
+  };
+
+  const drawSquares = (canvas: HTMLCanvasElement) => {
+    if (finishedDrawing) {
+      window.requestAnimationFrame(() => drawSquares(canvas));
+      return;
+    }
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    
+    let needsUpdate = false;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (let y = 0; y < rowCount; y++) {
+      for (let x = 0; x < columnCount; x++) {
+        const geo = geoMap[x][y];
+        const localScale = 1 + geo.opacity;
+        const scaledWidth = geo.width * localScale;
+        const scaledHeight = geo.height * localScale;
+        const scaleOffset = (scaledWidth - geo.width) / 2;
+
+        if (geo.draw == false) continue;
+
+        ctx.fillStyle = defaultSquareColor;
+        ctx.fillRect(geo.x - scaleOffset, geo.y - scaleOffset, scaledWidth, scaledHeight);
+
+        if (geo.opacity > 0.02) {
+          needsUpdate = true;
+          const colorTarget = Math.floor((x / columnCount) * colorStopResolution + 0.5);
+          const colorData = gradientColors[colorTarget];
+
+          ctx.fillStyle = `rgba(${colorData.r}, ${colorData.g}, ${colorData.b}, ${geo.opacity})`;
+          ctx.fillRect(geo.x - scaleOffset, geo.y - scaleOffset, scaledWidth, scaledHeight);
+          geo.opacity = geo.opacity * 0.98;
+        }
+      }
+    }
+    if (!needsUpdate) finishedDrawing = true;
+
+    window.requestAnimationFrame(() => drawSquares(canvas));
+  };
+
+  const updateColors = (position: MouseLocation) => {
+    finishedDrawing = false;
+
+    for (let x = 0; x < columnCount; x++) {
+      for (let y = 0; y < rowCount; y++) {
+        const geo = geoMap[x][y];
+        const distanceX = Math.abs(position.x * scale - geo.centerX);
+        const distanceY = Math.abs(position.y * scale - geo.centerY);
+        const distance = Math.sqrt(distanceY * distanceY + distanceX * distanceX);
+
+        if (distance < updateColorDistanceThreshold) {
+          const targetOpacity = 1 - distance / updateColorDistanceThreshold;
+          geo.opacity = Math.max(targetOpacity, geo.opacity);
+        }
+      }
+    }
+  };
+
+  const handleMouseMove = (e: MouseEvent) => {
+    const canvas = e.target as HTMLCanvasElement;
+    const clientRect = canvas.getBoundingClientRect();
+
+    updateColors({ x: e.clientX - clientRect.left, y: e.clientY - clientRect.top });
+  };
+
+  // Initialize when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      const canvas = document.querySelector("#hero-canvas") as HTMLCanvasElement;
+      scale = window.devicePixelRatio || 1;
+
+      if (!canvas) return;
+
+      loaded = true;
+      canvas.classList.add('loaded');
+      
+      initCanvas(canvas);
+
+      canvas.addEventListener("mousemove", handleMouseMove);
+      window.addEventListener("resize", () => setResolution(canvas));
+    }, 200);
+  });
+</script>

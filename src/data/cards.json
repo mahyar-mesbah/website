@@ -1,0 +1,45 @@
+[
+  {
+    "title": "Brand Identity Design",
+    "description": "Complete brand identity systems including logos, color palettes, typography, and brand guidelines",
+    "image": [
+      "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800"
+    ]
+  },
+  {
+    "title": "UI/UX Design",
+    "description": "User-centered design solutions for web and mobile applications with focus on usability and aesthetics",
+    "image": [
+      "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800"
+    ]
+  },
+  {
+    "title": "AI Video Generation",
+    "description": "Cutting-edge AI-powered video content creation for marketing, social media, and promotional materials",
+    "video": "https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4",
+    "image": "https://images.pexels.com/photos/3945313/pexels-photo-3945313.jpeg?auto=compress&cs=tinysrgb&w=800"
+  },
+  {
+    "title": "Print Design",
+    "description": "Professional print materials including brochures, business cards, posters, and packaging design",
+    "image": "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
+  },
+  {
+    "title": "AI Image Generation",
+    "description": "Creative AI-generated artwork and imagery for various commercial and artistic applications",
+    "image": [
+      "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.pexels.com/photos/8386422/pexels-photo-8386422.jpeg?auto=compress&cs=tinysrgb&w=800"
+    ]
+  },
+  {
+    "title": "Motion Graphics",
+    "description": "Dynamic motion graphics and animations for digital platforms, presentations, and video content",
+    "image": "https://images.pexels.com/photos/3945313/pexels-photo-3945313.jpeg?auto=compress&cs=tinysrgb&w=800"
+  }
+]

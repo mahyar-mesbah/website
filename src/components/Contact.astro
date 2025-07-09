@@ -1,0 +1,432 @@
+---
+---
+
+<section id="contact" class="contact-section">
+  <canvas id="contact-canvas" class="contact-canvas"></canvas>
+  <div id="contact-container" class="container">
+    <div class="section-header">
+      <h2>Get In Touch</h2>
+      <p>Let's connect and discuss your next project</p>
+    </div>
+
+    <div class="contact-content">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">
+           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" d="M9.5 20v2a.75.75 0 0 0 1.5 0v-2zm5.5 0h-1.5v2a.75.75 0 0 0 1.5 0z"/><path fill="currentColor" fill-rule="evenodd" d="m17.385 6.585l.256-.052a2.2 2.2 0 0 1 1.24.115c.69.277 1.446.328 2.165.148l.061-.015c.524-.131.893-.618.893-1.178v-2.13c0-.738-.664-1.282-1.355-1.109c-.396.1-.812.071-1.193-.081l-.073-.03a3.5 3.5 0 0 0-2-.185l-.449.09c-.54.108-.93.6-.93 1.17v6.953c0 .397.31.719.692.719a.706.706 0 0 0 .693-.72z" clip-rule="evenodd"/><path fill="currentColor" d="M14.5 6v4.28c0 1.172.928 2.22 2.192 2.22s2.193-1.048 2.193-2.22V8.229c.76.205 1.56.23 2.335.067c.492.842.78 1.86.78 2.955v6.175C22 18.847 21.012 20 19.793 20H12.5v-8.75c0-2.03-.832-3.974-2.217-5.25z"/><path fill="currentColor" fill-rule="evenodd" d="M2 11.25C2 8.35 4.015 6 6.5 6S11 8.35 11 11.25V20H4.233C3 20 2 18.834 2 17.395zM4.25 16a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H5a.75.75 0 0 1-.75-.75" clip-rule="evenodd"/></svg>
+
+
+
+
+
+          </div>
+          <div class="contact-details">
+            <h3>Email</h3>
+            <a href="mailto:hi@mmux.ir">hi@mmux.ir</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="currentColor" fill-rule="evenodd" d="M12 2c4.714 0 7.071 0 8.535 1.464c.504.504.835 1.114 1.052 1.889L5.353 21.587c-.775-.217-1.385-.548-1.889-1.052C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2M5.5 8.757c0 1.785 1.117 3.868 2.86 4.613c.406.173.874.173 1.28 0c1.743-.745 2.86-2.828 2.86-4.613C12.5 6.958 10.933 5.5 9 5.5S5.5 6.958 5.5 8.757" clip-rule="evenodd"/><path fill="currentColor" d="M10.5 9a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0"/><path fill="currentColor" d="M21.89 7.172C22 8.433 22 10.006 22 12c0 4.134 0 6.455-.987 7.951L15.06 14zm-1.938 13.84l-5.951-5.951l-6.83 6.828c1.262.111 2.835.111 4.83.111c4.134 0 6.455 0 7.951-.988" opacity=".5"/></svg>
+
+
+          </div>
+          <div class="contact-details">
+            <h3>Tehran/Iran</h3>
+            <span class="small-text">[Available for remote work]</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    color: white;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+
+  .contact-canvas {
+    position: absolute;
+    background: #000;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.5s ease-in;
+    z-index: 1;
+  }
+
+  .contact-canvas.loaded {
+    opacity: 1;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem;
+    z-index:444;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-header h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    background: linear-gradient(45deg, #fff, #e0e7ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-header p {
+    font-size: 1.125rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .contact-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .contact-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .contact-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  .contact-details h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0
+  }
+
+  .contact-details a {
+    color: #e0e7ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .contact-details a:hover {
+    color: white;
+  }
+
+  .contact-details p {
+    margin: 0;
+    opacity: 0.9;
+  }
+
+  .social-links h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 2rem 0;
+    text-align: center;
+  }
+
+  .social-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .social-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .social-link span {
+    font-weight: 500;
+  }
+
+  .small-text {
+    font-size: 12px !important;
+  }
+
+  @media (max-width: 768px) {
+    .contact-section {
+      padding: 3rem 0;
+    }
+
+    .container {
+      padding: 0 1rem;
+    }
+
+    .contact-content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .section-header {
+      margin-bottom: 2rem;
+    }
+
+    .social-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-item {
+      padding: 1rem;
+    }
+  }
+</style>
+
+
+<script>
+  interface Geo {
+    opacity: number;
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+    centerX: number;
+    centerY: number;
+    draw: boolean;
+  }
+
+  type GeoRow = Geo[];
+  type GeoMap = GeoRow[];
+
+  interface SafeArea {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+  }
+
+  interface MouseLocation {
+    x: number;
+    y: number;
+  }
+
+  const defaultSquareColor = "#c6c7c950";
+  const squareSize = 10;
+  const squareMargin = 50;
+  const gradientColors: Array<{r: number, g: number, b: number}> = [];
+  const updateColorDistanceThreshold = 400;
+  const colorStopResolution = 200;
+
+  let loaded = false;
+  let scale = 0.5;
+  let geoMap: GeoMap = [];
+  let finishedDrawing = false;
+  let columnCount: number;
+  let rowCount: number;
+  let safeArea: SafeArea;
+
+  const setResolution = (canvas: HTMLCanvasElement) => {
+    const clientRect = canvas.getBoundingClientRect();
+
+    finishedDrawing = false;
+    canvas.width = clientRect.width * scale;
+    canvas.height = clientRect.height * scale;
+    columnCount = Math.floor(clientRect.width / (squareSize + squareMargin));
+    rowCount = Math.floor(clientRect.height / (squareSize + squareMargin) + 0.5);
+
+    const drawAreaRect = document.querySelector("#contact-container")?.getBoundingClientRect();
+    const canvasRect = canvas.getBoundingClientRect();
+
+    if (drawAreaRect) {
+      safeArea = {
+        x: (drawAreaRect.left - canvasRect.left) * scale,
+        y: (drawAreaRect.top - canvasRect.top) * scale,
+        width: drawAreaRect.width * scale,
+        height: drawAreaRect.height * scale,
+      };
+    }
+
+    const offsetX = (clientRect.width - (columnCount * (squareSize + squareMargin) - squareMargin)) / 2;
+    const offsetY = 10;
+
+    geoMap = [];
+
+    for (let i = 0; i < columnCount; i++) {
+      let geoRow: Geo[] = [];
+
+      for (let j = 0; j < rowCount; j++) {
+        const xPos = offsetX + i * (squareSize + squareMargin);
+        const yPos = offsetY + j * (squareSize + squareMargin);
+
+        const geo: Geo = {
+          opacity: 1,
+          x: xPos * scale,
+          y: yPos * scale,
+          width: squareSize * scale,
+          height: squareSize * scale,
+          centerX: xPos * scale + (squareSize * scale) / 2,
+          centerY: yPos * scale + (squareSize * scale) / 2,
+          draw: false,
+        };
+
+        geo.draw = !checkOverlap(safeArea, geo);
+        geoRow.push(geo);
+      }
+
+      geoMap.push(geoRow);
+    }
+  };
+
+  const checkOverlap = (safeArea: SafeArea, geo: Geo): boolean => {
+    let overlapX = false;
+    let overlapY = false;
+
+    if (
+      (geo.x + geo.width > safeArea.x && geo.x + geo.width < safeArea.x + safeArea.width) ||
+      (geo.x > safeArea.x && geo.x < safeArea.x + safeArea.width)
+    ) {
+      overlapX = true;
+    }
+
+    if (
+      (geo.y + geo.height > safeArea.y && geo.y + geo.height < safeArea.y + safeArea.height) ||
+      (geo.y > safeArea.y && geo.y < safeArea.y + safeArea.height)
+    ) {
+      overlapY = true;
+    }
+
+    return overlapY && overlapX;
+  };
+
+  const initCanvas = (canvas: HTMLCanvasElement) => {
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const gradientWidth = 500;
+    let gradient = ctx.createLinearGradient(0, 0, gradientWidth, 0);
+
+    setResolution(canvas);
+
+    gradient.addColorStop((1 / 3) * 0, "#fc44e4");
+    gradient.addColorStop((1 / 3) * 1, "#4b2ec6");
+    gradient.addColorStop((1 / 3) * 2, "#FFBA02");
+    gradient.addColorStop((1 / 3) * 3, "#FF295D");
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, gradientWidth, 2);
+
+    for (let i = 0; i < colorStopResolution; i++) {
+      const imageData = ctx.getImageData(i * (gradientWidth / colorStopResolution), 1, 1, 1).data;
+      gradientColors.push({ r: imageData[0], g: imageData[1], b: imageData[2] });
+    }
+
+    drawSquares(canvas);
+  };
+
+  const drawSquares = (canvas: HTMLCanvasElement) => {
+    if (finishedDrawing) {
+      window.requestAnimationFrame(() => drawSquares(canvas));
+      return;
+    }
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let needsUpdate = false;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (let y = 0; y < rowCount; y++) {
+      for (let x = 0; x < columnCount; x++) {
+        const geo = geoMap[x][y];
+        const localScale = 1 + geo.opacity;
+        const scaledWidth = geo.width * localScale;
+        const scaledHeight = geo.height * localScale;
+        const scaleOffset = (scaledWidth - geo.width) / 2;
+
+        if (geo.draw == false) continue;
+
+        ctx.fillStyle = defaultSquareColor;
+        ctx.fillRect(geo.x - scaleOffset, geo.y - scaleOffset, scaledWidth, scaledHeight);
+
+        if (geo.opacity > 0.02) {
+          needsUpdate = true;
+          const colorTarget = Math.floor((x / columnCount) * colorStopResolution + 0.5);
+          const colorData = gradientColors[colorTarget];
+
+          ctx.fillStyle = `rgba(${colorData.r}, ${colorData.g}, ${colorData.b}, ${geo.opacity})`;
+          ctx.fillRect(geo.x - scaleOffset, geo.y - scaleOffset, scaledWidth, scaledHeight);
+          geo.opacity = geo.opacity * 0.98;
+        }
+      }
+    }
+    if (!needsUpdate) finishedDrawing = true;
+
+    window.requestAnimationFrame(() => drawSquares(canvas));
+  };
+
+  // Initialize when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      const canvas = document.querySelector("#contact-canvas") as HTMLCanvasElement;
+      scale = window.devicePixelRatio || 1;
+
+      if (!canvas) return;
+
+      loaded = true;
+      canvas.classList.add('loaded');
+
+      initCanvas(canvas);
+
+      window.addEventListener("resize", () => setResolution(canvas));
+    }, 200);
+  });
+</script>

@@ -1,0 +1,150 @@
+---
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-info">
+        <h3>Mahyar Mesbah</h3>
+        <p>Senior UI/UX/Graphic designer, enthusiast in AI Image and Video generation</p>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-section">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="mailto:hi@mmux.ir" title="hi@mmux.ir">Email</a></li>
+            <li><a href="https://www.linkedin.com/in/mahyar-mesbah" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="#work" target="_blank" rel="noopener noreferrer">Portfolio</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#work">UI/UX Design</a></li>
+            <li><a href="#work">Graphic Design</a></li>
+            <li><a href="#work">AI Image/Video</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="current-year">2024</span> Mahyar Mesbah. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const currentYear = new Date().getFullYear();
+    const yearElement = document.getElementById('current-year');
+    if (yearElement) {
+      yearElement.textContent = currentYear.toString();
+    }
+  });
+</script>
+
+<style>
+  .footer {
+    background: #141414;
+    color: white;
+    padding: 3rem 0 1rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-info h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    background: linear-gradient(45deg, #fff, #e0e7ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .footer-info p {
+    color: #9ca3af;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .footer-section h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+    color: white;
+  }
+
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-section li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-section a {
+    color: #9ca3af;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-section a:hover {
+    color: #667eea;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #374151;
+    padding-top: 1rem;
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    color: #6b7280;
+    margin: 0;
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 768px) {
+    .footer {
+      padding: 2rem 0 1rem;
+    }
+
+    .container {
+      padding: 0 1rem;
+    }
+
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .footer-links {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>

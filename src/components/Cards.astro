@@ -1,0 +1,85 @@
+---
+import Card from './Card.astro';
+import cardsData from '../data/cards.json';
+---
+
+<section id="work" class="cards-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>My Work & Expertise</h2>
+      <p>Explore the various projects and services I offer</p>
+    </div>
+    
+    <div class="cards-grid">
+      {cardsData.map((card) => (
+        <Card 
+          title={card.title}
+          description={card.description}
+          image={card.image}
+          video={card.video}
+          link={card.link}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .cards-section {
+    padding: 5rem 0;
+    background: #f8fafc;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-header h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 1rem 0;
+  }
+
+  .section-header p {
+    font-size: 1.125rem;
+    color: #6b7280;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    .cards-section {
+      padding: 3rem 0;
+    }
+    
+    .container {
+      padding: 0 1rem;
+    }
+    
+    .cards-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .section-header {
+      margin-bottom: 2rem;
+    }
+  }
+</style>

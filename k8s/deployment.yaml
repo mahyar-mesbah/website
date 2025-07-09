@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mmux
+  labels:
+    app: mmux
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mmux
+  template:
+    metadata:
+      labels:
+        app: mmux
+    spec:
+      containers:
+        - name: mmux
+          image: ghcr.io/mahyar-mesbah/website:latest
+          ports:
+            - containerPort: 8080
+
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+          resources:
+            limits:
+              cpu: '256m'
+              memory: '256Mi'
+            requests:
+              cpu: '128m'
+              memory: '128Mi'
