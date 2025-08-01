@@ -2,11 +2,7 @@
   {
     "title": "Brand Identity Design",
     "description": "Complete brand identity systems including logos, color palettes, typography, and brand guidelines",
-    "image": [
-      "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800"
-    ]
+    "image":"https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
   {
     "title": "UI/UX Design",
