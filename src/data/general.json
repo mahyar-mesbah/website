@@ -1,0 +1,66 @@
+{
+  "header": {
+    "I_AM": "I'm",
+    "NAME": "Mahyar Mesbah",
+    "TITLE": "Senior UI/UX/Graphic designer",
+    "VIEW_WORK": "View My Work",
+    "GET_IN_TOUCH": "Get In Touch"
+  },
+  "footer": {
+    "name": "Mahyar Mesbah",
+    "description": "Senior UI/UX/Graphic designer, enthusiast in AI Image and Video generation",
+    "contact": {
+      "title": "Get In Touch",
+      "description": "Let's connect and discuss your next project",
+      "items": [
+        {
+          "title": "Email",
+          "subtitle": "hi@mmux.ir",
+          "link": "mailto:hi@mmux.ir",
+          "icon": "email"
+        },
+        {
+          "title": "Tehran/Iran",
+          "subtitle": "[Available for remote work]",
+          "icon": "location"
+        }
+      ]
+    },
+    "column-1": {
+      "title": "Connect",
+      "links": [
+        {
+          "text": "Email",
+          "href": "mailto:hi@mmux.ir"
+        },
+        {
+          "text": "LinkedIn",
+          "href": "https://www.linkedin.com/in/mahyar-mesbah",
+          "target": "_blank"
+        }, {
+          "text": "Portfolio",
+          "href": "#work",
+          "target": "_blank"
+        }
+      ]
+    },
+    "column-2": {
+      "title": "Services",
+      "links": [
+        {
+          "text": "UI/UX Design",
+          "href": "#work"
+        },
+        {
+          "text": "Graphic Design",
+          "href": "#work"
+        },
+        {
+          "text": "AI Image/Video",
+          "href": "#work"
+        }
+      ]
+    },
+    "copyright": " Mahyar Mesbah. All rights reserved."
+  }
+}

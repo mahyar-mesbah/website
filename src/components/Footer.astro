@@ -1,37 +1,46 @@
 ---
+import generalData from '../data/general.json';
 ---
 
 <footer class="footer">
   <div class="container">
     <div class="footer-content">
       <div class="footer-info">
-        <h3>Mahyar Mesbah</h3>
-        <p>Senior UI/UX/Graphic designer, enthusiast in AI Image and Video generation</p>
+        <h3>{generalData.footer.name}</h3>
+        <p>{generalData.footer.description}</p>
       </div>
 
       <div class="footer-links">
         <div class="footer-section">
-          <h4>Connect</h4>
+          <h4>{generalData.footer["column-1"].title}</h4>
           <ul>
-            <li><a href="mailto:hi@mmux.ir" title="hi@mmux.ir">Email</a></li>
-            <li><a href="https://www.linkedin.com/in/mahyar-mesbah" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-            <li><a href="#work" target="_blank" rel="noopener noreferrer">Portfolio</a></li>
+            {generalData.footer["column-1"].links.map(link => (
+              <li>
+                <a href={link.href} target="_blank" rel="noopener noreferrer" title={link.title}>
+                  {link.text}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 
         <div class="footer-section">
-          <h4>Services</h4>
+          <h4>{generalData.footer["column-2"].title}</h4>
           <ul>
-            <li><a href="#work">UI/UX Design</a></li>
-            <li><a href="#work">Graphic Design</a></li>
-            <li><a href="#work">AI Image/Video</a></li>
+            {generalData.footer["column-2"].links.map(link => (
+              <li>
+                <a href={link.href} target="_blank" rel="noopener noreferrer" title={link.title}>
+                  {link.text}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; <span id="current-year">2024</span> Mahyar Mesbah. All rights reserved.</p>
+      <p>&copy; <span id="current-year">2025</span> {generalData.footer.copyright}</p>
     </div>
   </div>
 </footer>
