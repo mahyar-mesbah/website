@@ -23,13 +23,9 @@
     "image": "https://mmux.ir/B-card.png"
   },
   {
-    "title": "AI Image Generation",
-    "description": "Creative AI-generated artwork and imagery for various commercial and artistic applications",
-    "image": [
-      "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "https://images.pexels.com/photos/8386422/pexels-photo-8386422.jpeg?auto=compress&cs=tinysrgb&w=800"
-    ]
+    "title": "Ramand",
+    "description": "Website homepage design for a fintech company.",
+    "image":"https://images.pexels.com/photos/8386422/pexels-photo-8386422.jpeg?auto=compress&cs=tinysrgb&w=800"
   },
   {
     "title": "Motion Graphics",
