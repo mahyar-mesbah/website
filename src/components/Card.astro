@@ -7,7 +7,7 @@ interface Props {
   link?: string;
 }
 
-const {title, description, image, video, link = "#"} = Astro.props;
+const { title, description, image, video, link = "#" } = Astro.props;
 const isSlider = Array.isArray(image);
 const hasVideo = !!video;
 const images = isSlider ? image : [image];
@@ -16,47 +16,45 @@ const cardId = title.replace(/\s+/g, '-').toLowerCase();
 
 <div class="card" data-card-id={cardId}>
     <div class="card-image">
-      {hasVideo ? (
-        <video
-          src={video}
-          autoplay
-          muted
-          loop
-          playsinline
-        />
-      ) : isSlider ? (
-              <div class="image-slider">
-                  <div class="slider-container">
-                    {images.map((img, index) => (
-                            <img
-                                    src={img}
-                                    alt={`${title} - Image ${index + 1}`}
-                                    class={`slider-image ${index === 0 ? 'active' : ''}`}
-                                    data-index={index}
-                            />
-                    ))}
-                  </div>
-                  <button class="slider-btn prev-btn" aria-label="Previous image">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                           stroke-width="2">
-                          <polyline points="15,18 9,12 15,6"></polyline>
-                      </svg>
-                  </button>
-                  <button class="slider-btn next-btn" aria-label="Next image">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                           stroke-width="2">
-                          <polyline points="9,18 15,12 9,6"></polyline>
-                      </svg>
-                  </button>
-                  <div class="slider-dots">
-                    {images.map((_, index) => (
-                            <button class={`dot ${index === 0 ? 'active' : ''}`} data-index={index}></button>
-                    ))}
-                  </div>
+        {hasVideo ? (
+          <video
+            src={video}
+            autoplay
+            muted
+            loop
+            playsinline
+          />
+        ) : isSlider ? (
+          <div class="image-slider">
+              <div class="slider-container">
+                  {images.map((img, index) => (
+                    <img
+                      src={img}
+                      alt={`${title} - Image ${index + 1}`}
+                      class={`slider-image ${index === 0 ? 'active' : ''}`}
+                      data-index={index}
+                    />
+                  ))}
               </div>
-      ) : (
-              <img src={images[0]} alt={title}/>
-      )}
+              <button class="slider-btn prev-btn" aria-label="Previous image">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="15,18 9,12 15,6"></polyline>
+                  </svg>
+              </button>
+              <button class="slider-btn next-btn" aria-label="Next image">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="9,18 15,12 9,6"></polyline>
+                  </svg>
+              </button>
+              <div class="slider-dots">
+                  {images.map((_, index) => (
+                    <button class={`dot ${index === 0 ? 'active' : ''}`} data-index={index}></button>
+                  ))}
+              </div>
+          </div>
+        ) : (
+          <img src={images[0]} alt={title} />
+        )}
     </div>
     <div class="card-content">
         <h3>{title}</h3>
@@ -77,44 +75,42 @@ const cardId = title.replace(/\s+/g, '-').toLowerCase();
 
         <div class="modal-slider">
             <div class="modal-slider-container">
-              {hasVideo ? (
-                      <video
-                              src={video}
-                              class="modal-slider-video active"
-                              controls
-                              autoplay
-                              muted
-                              loop
-                              playsinline
-                      />
-              ) : (
-                images.map((img, index) => (
-                        <img
-                                src={img}
-                                alt={`${title} - Image ${index + 1}`}
-                                class={`modal-slider-image ${index === 0 ? 'active' : ''}`}
-                                data-index={index}
-                        />
-                ))
-              )}
+                {hasVideo ? (
+                  <video
+                    src={video}
+                    class="modal-slider-video active"
+                    controls
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                  />
+                ) : (
+                  images.map((img, index) => (
+                    <img
+                      src={img}
+                      alt={`${title} - Image ${index + 1}`}
+                      class={`modal-slider-image ${index === 0 ? 'active' : ''}`}
+                      data-index={index}
+                    />
+                  ))
+                )}
             </div>
 
-          {!hasVideo && images.length > 1 && (
-                  <>
-                      <button class="modal-slider-btn modal-prev-btn" aria-label="Previous image">
-                          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                               stroke-width="2">
-                              <polyline points="15,18 9,12 15,6"></polyline>
-                          </svg>
-                      </button>
-                      <button class="modal-slider-btn modal-next-btn" aria-label="Next image">
-                          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                               stroke-width="2">
-                              <polyline points="9,18 15,12 9,6"></polyline>
-                          </svg>
-                      </button>
-                  </>
-          )}
+            {!hasVideo && images.length > 1 && (
+              <>
+                  <button class="modal-slider-btn modal-prev-btn" aria-label="Previous image">
+                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polyline points="15,18 9,12 15,6"></polyline>
+                      </svg>
+                  </button>
+                  <button class="modal-slider-btn modal-next-btn" aria-label="Next image">
+                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polyline points="9,18 15,12 9,6"></polyline>
+                      </svg>
+                  </button>
+              </>
+            )}
         </div>
 
         <div class="modal-info">
@@ -154,7 +150,6 @@ const cardId = title.replace(/\s+/g, '-').toLowerCase();
         height: 100%;
         object-fit: cover;
         transition: transform 0.3s ease;
-        filter: grayscale(0.9);
     }
 
     .card-image video {
@@ -162,17 +157,14 @@ const cardId = title.replace(/\s+/g, '-').toLowerCase();
         height: 100%;
         object-fit: cover;
         transition: transform 0.3s ease;
-        filter: grayscale(0.9);
     }
 
     .card:hover .card-image img {
         transform: scale(1.05);
-        filter: grayscale(0);
     }
 
     .card:hover .card-image video {
         transform: scale(1.05);
-        filter: grayscale(0);
     }
 
     /* Image Slider Styles */
@@ -432,18 +424,19 @@ const cardId = title.replace(/\s+/g, '-').toLowerCase();
     .modal-info {
         text-align: center;
         color: white;
-        padding: 2rem;
+        padding: 1rem;
         position: fixed;
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
-        background: rgb(0 0 0 / 76%);
+        width: 100%
     }
 
     .modal-info h2 {
         font-size: 1.4rem;
         font-weight: 700;
         margin: 0 0 1rem 0;
+        text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
     }
 
     .modal-info p {
@@ -451,6 +444,7 @@ const cardId = title.replace(/\s+/g, '-').toLowerCase();
         opacity: 0.9;
         line-height: 1.6;
         margin: 0;
+        text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
     }
 
     @media (max-width: 768px) {
@@ -487,178 +481,178 @@ const cardId = title.replace(/\s+/g, '-').toLowerCase();
 </style>
 
 <script is:inline>
-  function initializeCardSliders() {
-    const cards = document.querySelectorAll('.card');
+    function initializeCardSliders() {
+        const cards = document.querySelectorAll('.card');
 
-    cards.forEach(card => {
-      const slider = card.querySelector('.image-slider');
-      const modal = document.getElementById(`modal-${card.dataset.cardId}`);
-      const hasVideo = card.querySelector('video');
+        cards.forEach(card => {
+            const slider = card.querySelector('.image-slider');
+            const modal = document.getElementById(`modal-${card.dataset.cardId}`);
+            const hasVideo = card.querySelector('video');
 
-      if (slider && !hasVideo) {
-        setupCardSlider(card, slider);
-      }
+            if (slider && !hasVideo) {
+                setupCardSlider(card, slider);
+            }
 
-      if (modal) {
-        setupModal(card, modal, hasVideo);
-      }
-    });
-  }
-
-  function setupCardSlider(card, slider) {
-    const images = slider.querySelectorAll('.slider-image');
-    const prevBtn = slider.querySelector('.prev-btn');
-    const nextBtn = slider.querySelector('.next-btn');
-    const dots = slider.querySelectorAll('.dot');
-    let currentIndex = 0;
-    let autoplayInterval;
-
-    function showImage(index) {
-      images.forEach((img, i) => {
-        img.classList.toggle('active', i === index);
-      });
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-      });
-      currentIndex = index;
+            if (modal) {
+                setupModal(card, modal, hasVideo);
+            }
+        });
     }
 
-    function nextImage() {
-      const nextIndex = (currentIndex + 1) % images.length;
-      showImage(nextIndex);
-    }
+    function setupCardSlider(card, slider) {
+        const images = slider.querySelectorAll('.slider-image');
+        const prevBtn = slider.querySelector('.prev-btn');
+        const nextBtn = slider.querySelector('.next-btn');
+        const dots = slider.querySelectorAll('.dot');
+        let currentIndex = 0;
+        let autoplayInterval;
 
-    function prevImage() {
-      const prevIndex = (currentIndex - 1 + images.length) % images.length;
-      showImage(prevIndex);
-    }
-
-    function startAutoplay() {
-      // TODO: add auto play only with hover and also add fade animation
-      if (images.length > 1) {
-        autoplayInterval = setInterval(nextImage, 3000);
-      }
-    }
-
-    function stopAutoplay() {
-      clearInterval(autoplayInterval);
-    }
-
-    // Event listeners
-    prevBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      prevImage();
-    });
-
-    nextBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      nextImage();
-    });
-
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', (e) => {
-        e.stopPropagation();
-        showImage(index);
-      });
-    });
-
-    // Autoplay controls
-    card.addEventListener('mouseenter', stopAutoplay);
-    card.addEventListener('mouseleave', startAutoplay);
-
-    // Start autoplay
-    startAutoplay();
-  }
-
-  function setupModal(card, modal, hasVideo) {
-    const modalImages = modal.querySelectorAll('.modal-slider-image');
-    const modalVideo = modal.querySelector('.modal-slider-video');
-    const modalPrevBtn = modal.querySelector('.modal-prev-btn');
-    const modalNextBtn = modal.querySelector('.modal-next-btn');
-    const closeBtn = modal.querySelector('.modal-close');
-    let modalCurrentIndex = 0;
-
-    function showModalImage(index) {
-      modalImages.forEach((img, i) => {
-        img.classList.toggle('active', i === index);
-      });
-      modalCurrentIndex = index;
-    }
-
-    function nextModalImage() {
-      const nextIndex = (modalCurrentIndex + 1) % modalImages.length;
-      showModalImage(nextIndex);
-    }
-
-    function prevModalImage() {
-      const prevIndex = (modalCurrentIndex - 1 + modalImages.length) % modalImages.length;
-      showModalImage(prevIndex);
-    }
-
-    // Open modal
-    card.addEventListener('click', (e) => {
-      if (!e.target.closest('.slider-btn') && !e.target.closest('.dot') && !hasVideo) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      } else if (hasVideo && !e.target.closest('video')) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        if (modalVideo) {
-          modalVideo.play();
+        function showImage(index) {
+            images.forEach((img, i) => {
+                img.classList.toggle('active', i === index);
+            });
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+            currentIndex = index;
         }
-      }
-    });
 
-    // Close modal
-    closeBtn.addEventListener('click', () => {
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
-      if (modalVideo) {
-        modalVideo.pause();
-      }
-    });
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-        if (modalVideo) {
-          modalVideo.pause();
+        function nextImage() {
+            const nextIndex = (currentIndex + 1) % images.length;
+            showImage(nextIndex);
         }
-      }
-    });
 
-    // Modal navigation
-    if (modalPrevBtn && !hasVideo) {
-      modalPrevBtn.addEventListener('click', prevModalImage);
+        function prevImage() {
+            const prevIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(prevIndex);
+        }
+
+        function startAutoplay() {
+            // TODO: add auto play only with hover and also add fade animation
+            if (images.length > 1) {
+                autoplayInterval = setInterval(nextImage, 3000);
+            }
+        }
+
+        function stopAutoplay() {
+            clearInterval(autoplayInterval);
+        }
+
+        // Event listeners
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prevImage();
+        });
+
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            nextImage();
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', (e) => {
+                e.stopPropagation();
+                showImage(index);
+            });
+        });
+
+        // Autoplay controls
+        card.addEventListener('mouseenter', stopAutoplay);
+        card.addEventListener('mouseleave', startAutoplay);
+
+        // Start autoplay
+        startAutoplay();
     }
 
-    if (modalNextBtn && !hasVideo) {
-      modalNextBtn.addEventListener('click', nextModalImage);
+    function setupModal(card, modal, hasVideo) {
+        const modalImages = modal.querySelectorAll('.modal-slider-image');
+        const modalVideo = modal.querySelector('.modal-slider-video');
+        const modalPrevBtn = modal.querySelector('.modal-prev-btn');
+        const modalNextBtn = modal.querySelector('.modal-next-btn');
+        const closeBtn = modal.querySelector('.modal-close');
+        let modalCurrentIndex = 0;
+
+        function showModalImage(index) {
+            modalImages.forEach((img, i) => {
+                img.classList.toggle('active', i === index);
+            });
+            modalCurrentIndex = index;
+        }
+
+        function nextModalImage() {
+            const nextIndex = (modalCurrentIndex + 1) % modalImages.length;
+            showModalImage(nextIndex);
+        }
+
+        function prevModalImage() {
+            const prevIndex = (modalCurrentIndex - 1 + modalImages.length) % modalImages.length;
+            showModalImage(prevIndex);
+        }
+
+        // Open modal
+        card.addEventListener('click', (e) => {
+            if (!e.target.closest('.slider-btn') && !e.target.closest('.dot') && !hasVideo) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else if (hasVideo && !e.target.closest('video')) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                if (modalVideo) {
+                    modalVideo.play();
+                }
+            }
+        });
+
+        // Close modal
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            if (modalVideo) {
+                modalVideo.pause();
+            }
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                if (modalVideo) {
+                    modalVideo.pause();
+                }
+            }
+        });
+
+        // Modal navigation
+        if (modalPrevBtn && !hasVideo) {
+            modalPrevBtn.addEventListener('click', prevModalImage);
+        }
+
+        if (modalNextBtn && !hasVideo) {
+            modalNextBtn.addEventListener('click', nextModalImage);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (modal.classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                    if (modalVideo) {
+                        modalVideo.pause();
+                    }
+                } else if (e.key === 'ArrowLeft' && !hasVideo) {
+                    prevModalImage();
+                } else if (e.key === 'ArrowRight' && !hasVideo) {
+                    nextModalImage();
+                }
+            }
+        });
     }
 
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (modal.classList.contains('active')) {
-        if (e.key === 'Escape') {
-          modal.classList.remove('active');
-          document.body.style.overflow = '';
-          if (modalVideo) {
-            modalVideo.pause();
-          }
-        } else if (e.key === 'ArrowLeft' && !hasVideo) {
-          prevModalImage();
-        } else if (e.key === 'ArrowRight' && !hasVideo) {
-          nextModalImage();
-        }
-      }
-    });
-  }
-
-  // Initialize when DOM is loaded
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeCardSliders);
-  } else {
-    initializeCardSliders();
-  }
+    // Initialize when DOM is loaded
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeCardSliders);
+    } else {
+        initializeCardSliders();
+    }
 </script>
