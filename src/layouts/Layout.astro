@@ -1,12 +1,14 @@
 ---
+import generalData from '../data/general.json';
+
 export interface Props {
   title?: string;
   description?: string;
 }
 
 const {
-  title = "Mahyar Mesbah - Senior UI/UX Designer",
-  description = "Senior UI/UX/Graphic designer, enthusiast in AI Image and Video generation"
+  title = generalData.meta.title || "My Portfolio",
+  description = generalData.meta.description || "Senior UI/UX/Graphic designer, enthusiast in AI Image and Video generation"
 } = Astro.props;
 ---
 
@@ -24,6 +26,7 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content={generalData.meta.keywords} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
