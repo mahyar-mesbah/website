@@ -1,45 +1,35 @@
 [
   {
-    "title": "Brand Identity Design",
-    "description": "Complete brand identity systems including logos, color palettes, typography, and brand guidelines",
+    "title": "GYM brand design",
+    "description": "Introducing GYM - A sleek and powerful fitness app UI!",
+    "image":"https://mmux.ir/GYM.png"
+  },
+  {
+    "title": "Flower Shop",
+    "description": "A minimalist and elegant mobile app design for an online flower shop.",
     "image": [
-      "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800"
+      "https://mmux.ir/Zaeem%20Green.png",
+      "https://mmux.ir/Zaeem%20purple.jpg"
     ]
   },
   {
-    "title": "UI/UX Design",
-    "description": "User-centered design solutions for web and mobile applications with focus on usability and aesthetics",
-    "image": [
-      "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800"
-    ]
+    "title": "Motif - Online Shop",
+    "description": "Dark, bold & tailored for style.A modern fashion shopping app for the sharpest looks.",
+    "image": "https://mmux.ir/Mutif.png"
   },
   {
-    "title": "AI Video Generation",
-    "description": "Cutting-edge AI-powered video content creation for marketing, social media, and promotional materials",
-    "video": "https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4",
-    "image": "https://images.pexels.com/photos/3945313/pexels-photo-3945313.jpeg?auto=compress&cs=tinysrgb&w=800"
+    "title": "B-card",
+    "description": "A minimal yet dynamic UI for a smart calling card app that allows users to easily create, customize, and share their cards via QR codes or personalized links",
+    "image": "https://mmux.ir/B-card.png"
   },
   {
-    "title": "Print Design",
-    "description": "Professional print materials including brochures, business cards, posters, and packaging design",
-    "image": "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
+    "title": "Ramand",
+    "description": "Website homepage design for a fintech company.",
+    "image":"https://mmux.ir/Ramand.png"
   },
   {
-    "title": "AI Image Generation",
-    "description": "Creative AI-generated artwork and imagery for various commercial and artistic applications",
-    "image": [
-      "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "https://images.pexels.com/photos/8386422/pexels-photo-8386422.jpeg?auto=compress&cs=tinysrgb&w=800"
-    ]
-  },
-  {
-    "title": "Motion Graphics",
-    "description": "Dynamic motion graphics and animations for digital platforms, presentations, and video content",
-    "image": "https://images.pexels.com/photos/3945313/pexels-photo-3945313.jpeg?auto=compress&cs=tinysrgb&w=800"
+    "title": "Kahkeshan.app",
+    "description": "A professional stock trading app with strategy building, dedicated favorites, and quick analysis actions for professional users.",
+    "image": "https://mmux.ir/Kahkeshan.png"
   }
 ]
