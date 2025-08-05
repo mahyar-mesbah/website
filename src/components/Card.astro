@@ -66,6 +66,12 @@ const cardId = title.replace(/\s+/g, '-').toLowerCase();
 <!-- Full-page modal -->
 <div class="modal-overlay" id={`modal-${cardId}`}>
     <div class="modal-content">
+
+        <div class="modal-info">
+            <h2>{title}</h2>
+            <p>{description}</p>
+        </div>
+
         <button class="modal-close" aria-label="Close modal">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -113,10 +119,6 @@ const cardId = title.replace(/\s+/g, '-').toLowerCase();
             )}
         </div>
 
-        <div class="modal-info">
-            <h2>{title}</h2>
-            <p>{description}</p>
-        </div>
     </div>
 </div>
 
@@ -248,6 +250,7 @@ const cardId = title.replace(/\s+/g, '-').toLowerCase();
         background: rgba(255, 255, 255, 0.5);
         cursor: pointer;
         transition: background 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .dot.active {
@@ -324,14 +327,15 @@ const cardId = title.replace(/\s+/g, '-').toLowerCase();
         position: relative;
         width: 90%;
         max-width: 1200px;
-        height: 90%;
+        height: 100%;
         display: flex;
         flex-direction: column;
+        overflow: auto;
     }
 
     .modal-close {
         position: absolute;
-        top: 10px;
+        top: 0;
         right: 10px;
         display: flex;
         align-items: center;
@@ -395,7 +399,7 @@ const cardId = title.replace(/\s+/g, '-').toLowerCase();
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        background: rgba(255, 255, 255, 0.1);
+        background: rgb(0 0 0 / 10%);
         color: white;
         border: none;
         border-radius: 50%;
@@ -422,14 +426,10 @@ const cardId = title.replace(/\s+/g, '-').toLowerCase();
     }
 
     .modal-info {
-        text-align: center;
-        color: white;
+        text-align: left;
+        color: #fff;
         padding: 1rem;
-        position: fixed;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%
+        width: 100%;
     }
 
     .modal-info h2 {
