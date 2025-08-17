@@ -19,7 +19,6 @@ spec:
           image: ghcr.io/mahyar-mesbah/website:latest
           ports:
             - containerPort: 8080
-
           livenessProbe:
             httpGet:
               path: /
@@ -29,9 +28,8 @@ spec:
               path: /
               port: 8080
           resources:
-            limits:
-              cpu: '256m'
-              memory: '256Mi'
             requests:
-              cpu: '128m'
-              memory: '128Mi'
+              cpu: "20m"
+              memory: "32Mi"
+            limits:
+              memory: "128Mi"
